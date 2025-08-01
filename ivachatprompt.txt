@@ -1,0 +1,103 @@
+IvaChat AI Agent - System Prompt and Documentation
+=================================================
+
+SYSTEM OVERVIEW:
+The IvaChat AI Agent is an intelligent financial advisory chatbot that helps users with frequently asked financial questions. 
+The system uses OpenAI's GPT models to match user questions to predefined canonical financial questions and provides interactive, 
+personalized responses.
+
+CORE FUNCTIONALITY:
+1. Question Matching: Uses AI to map user questions to canonical financial questions
+2. Interactive Data Collection: Asks follow-up questions to gather user-specific financial data
+3. Template Processing: Updates financial templates with user inputs
+4. Guided Financial Analysis: Provides structured responses for financial scenarios
+
+CANONICAL QUESTIONS SUPPORTED:
+- "Rent Vs Buy": Helps users decide between renting and buying a home
+- "Buy now and refinance later": Advises on purchasing with high interest rates and refinancing later
+
+SYSTEM ARCHITECTURE:
+- Question Matching Engine: Uses OpenAI GPT-3.5-turbo to match user queries
+- Template Database: Stores predefined financial scenarios and their parameters
+- Sequence Engine: Manages the flow of questions and responses
+- Interactive Interface: Console-based user interaction system
+
+KEY COMPONENTS:
+1. IvaChatAgent Class: Main orchestrator
+2. Template Table: Maps FAQs to JSON configuration objects
+3. Sequence Table: Defines the order and type of user interactions
+4. Question Matching: AI-powered semantic matching system
+
+DATA STRUCTURE:
+- FAQ_key: Unique identifier for each financial scenario
+- Template: JSON blob containing financial parameters (balance, APR, rent, salary, etc.)
+- Sequence: Ordered list of interactions (questions vs. information display)
+- IsQuestion: Boolean flag determining if user input is required
+
+INTERACTION FLOW:
+1. User asks a financial question
+2. System matches question to canonical FAQ
+3. System retrieves appropriate template and sequence
+4. System asks user for specific financial details
+5. System updates template with user responses
+6. System provides final configuration for financial modeling
+
+CURRENT LIMITATIONS:
+- Limited to 2 canonical question types
+- Console-based interface only
+- Hardcoded API key (needs environment variable implementation)
+- Simplified financial templates
+- No data persistence between sessions
+
+FUTURE ENHANCEMENT AREAS:
+- Web-based user interface
+- Database integration for persistent storage
+- Additional financial scenarios and templates
+- Advanced financial calculations and projections
+- User authentication and session management
+- Integration with real financial data sources
+- Multi-language support
+- Advanced AI reasoning for complex financial advice
+
+TECHNICAL SPECIFICATIONS:
+- Language: Python 3.x
+- Dependencies: openai>=1.0.0, pandas>=1.5.0
+- AI Model: OpenAI GPT-3.5-turbo
+- Data Storage: In-memory pandas DataFrames (future: SQL database)
+
+PROMPT ENGINEERING GUIDELINES:
+- System prompts should emphasize accuracy in financial advice
+- Temperature setting of 0.2 for consistent question matching
+- Clear instructions for exact canonical question matching
+- Error handling for API failures and edge cases
+
+DEVELOPMENT NOTES:
+- Code follows object-oriented design patterns
+- Modular structure allows for easy extension
+- Comprehensive error handling implemented
+- Clean separation of concerns between components
+
+USAGE INSTRUCTIONS:
+1. Install dependencies: pip install -r requirements.txt
+2. Set OpenAI API key (currently hardcoded, move to environment variable)
+3. Run script: python ivachat_cleaned.py
+4. Follow interactive prompts for financial questions
+
+SECURITY CONSIDERATIONS:
+- API key should be moved to environment variables
+- User financial data should be encrypted if persisted
+- Input validation needed for financial parameters
+- Rate limiting considerations for OpenAI API calls
+
+API INTEGRATION:
+- OpenAI Chat Completions API for question matching
+- Future integrations: Financial data APIs, market data feeds
+- Error handling for API timeouts and failures
+
+TESTING REQUIREMENTS:
+- Unit tests for question matching accuracy
+- Integration tests for complete user flows
+- Mock API responses for testing without API costs
+- Edge case testing for unmatched questions
+
+This prompt file serves as the foundation for understanding and extending the IvaChat AI Agent system. Add new features and documentation sections as the system evolves.
